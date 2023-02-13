@@ -112,7 +112,7 @@ this.t=t.substring(0);t="";if(this.t.charAt(this.t.length-1)!="%"){return false}
 if(x==0){return true};if(x==1||x==2){return this.transform(x,this.n,"HWB")}
   }
 
-  else if(t.startsWith("NCol(")||t.startsWith("R")||t.startsWith("Y")||t.startsWith("G")||t.startsWith("C")||t.startsWith("B")||t.startsWith("M")){
+  else if((t.startsWith("NCol(")&&this.testNCol(4,t.substring(5,8))) || this.testNCol(4,t.substring(0,3))){
     t=t.substring(5);if(t.endsWith(")")){t=t.substring(0,t.length-1)}else{return false}
     if(t.includes("%")==true){
     this.t=t.substring(0,t.indexOf(","));t=t.substring(this.t.length+1);if(this.testNCol(0,this.t)==false){return false};this.n.push(this.t)
@@ -240,7 +240,16 @@ if(x==0){return true};if(x==1){return "rgba("+this.n[0]+","+this.n[1]+","+this.n
 }
 }
 
-testNCol(x,t){if(t.substring(1,3)==""){return false}
+testNCol(x,t){if(x==4){
+    if(t[0]=="R"||t[0]=="Y"||t[0]=="G"||t[0]=="C"||t[0]=="B"||t[0]=="M"){
+if(t[1]!=""&&!(isNaN(Number(t[1]))) && t[2]!=""&&!(isNaN(Number(t[2])))){
+  return true
+}
+    }
+    return false
+  }
+  
+  if(t.substring(1,3)==""){return false}
 
   if((!isNaN(Number(t.substring(1,3))))&&Number(t.substring(1,3))<=99&&Number(t.substring(1,3))>=0){
     if(t[0]=="R"){if(x==0){return true};if(x==1){ return "rgba ( 255, "+Math.round(255*(Number(t.substring(1,3))/100))+", 0,1)" }if(x==2){return [255, Math.round(255*(Number(t.substring(1,3))/100)), 0,1] }}
