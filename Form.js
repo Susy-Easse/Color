@@ -132,9 +132,9 @@ return this.transform(x,[this.testNCol(2,this.n[0]),this.n[1],this.n[2]],"NCol")
   else if(t=="brown"||t=="marrom"){if(x==0){return true};if(x==1){return "rgba(139,69,19,1)"};if(x==2){return [139,69,19,1]}}
   else if(t=="magenta"){if(x==0){return true};if(x==1){return "rgba(255,0,255,1)"};if(x==2){return [255,0,255,1]}}
   else if(t=="cyan"||t=="ciano"){if(x==0){return true};if(x==1){return "rgba(0,255,255,1)"};if(x==2){return [0,255,255,1]}}
-  else if(t=="black"||t=="white"){if(x==0){return true};if(x==1){return "rgba(0,0,0,1)"};if(x==2){return [0,0,0,1]}}
+  else if(t=="black"||t=="preto"){if(x==0){return true};if(x==1){return "rgba(0,0,0,1)"};if(x==2){return [0,0,0,1]}}
   else if(t=="gray"||t=="cinza"){if(x==0){return true};if(x==1){return "rgba(128,128,128,1)"};if(x==2){return [128,128,128,1]}}
-  else if(t=="white"||t=="white"){if(x==0){return true};if(x==1){return "rgba(255,255,255,1)"};if(x==2){return [255,255,255,1]}}
+  else if(t=="white"||t=="branco"){if(x==0){return true};if(x==1){return "rgba(255,255,255,1)"};if(x==2){return [255,255,255,1]}}
   else{return false}
   }
 }
